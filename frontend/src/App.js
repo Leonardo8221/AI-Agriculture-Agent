@@ -124,7 +124,9 @@ function App() {
     return (
         <div>
             <main className="relative mx-auto max-w-3xl px-4">
-                <h1 className="my-8 text-center text-4xl">Mployer chatbot</h1>
+                <h1 className="my-8 text-center text-4xl">
+                    Agriculture AI Agent
+                </h1>
                 <div className="flex w-full items-end space-x-2 items-center justify-center mb-2 ">
                     <div
                         className={`text-blue-400 ${
