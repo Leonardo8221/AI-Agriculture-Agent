@@ -1,19 +1,21 @@
-import "./App.css";
-import { useEffect, useRef, useState } from "react";
-import React from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-import Select from "react-select";
+import React, { useState } from "react";
+import Result from "./components/Result";
+import Home from "./components/Home";
+
+import './App.css'
 
 function App() {
-    return (
-        <div>
-            <main className="relative mx-auto max-w-3xl px-4">
-                <h1 className="mt-[10rem] text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl ">
-                    Agriculture AI Agent
-                </h1>
-            </main>
-        </div>
-    );
+  const [showResult, setShowResult] = useState(false);
+
+  return (
+    <div className="flex max-w-7xl justify-center mx-auto">
+      {!showResult ? (
+        <Home setShowResult={setShowResult} />
+      ) : (
+        <Result setShowResult={setShowResult} />
+      )}
+    </div>
+  );
 }
 
 export default App;
