@@ -8,9 +8,10 @@ import {
   Spinner,
 } from "@material-tailwind/react";
 
-import { useBooks, useVideos } from "../utils/store";
+import { useBooks, useText, useVideos } from "../utils/store";
 import BookCard from "./BookCard";
 import Videos from "./Videos";
+import TextView from "./TextView";
 
 const Result = (props) => {
   const { loading, books } = useBooks((state) => ({
@@ -21,6 +22,11 @@ const Result = (props) => {
   const { vLoading, videos } = useVideos((state) => ({
     vLoading: state.loading,
     videos: state.videos,
+  }));
+
+  const { tLoading, text } = useText((state) => ({
+    tLoading: state.loading,
+    text: state.text,
   }));
 
   const data = [
@@ -58,9 +64,7 @@ const Result = (props) => {
     {
       label: "Text",
       value: "text",
-      items: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
+      items: <TextView text={text} />,
     },
   ];
 
@@ -80,7 +84,7 @@ const Result = (props) => {
       </button>
 
       <div className="w-full">
-        {loading && vLoading ? (
+        {loading && vLoading && tLoading ? (
           <div className="flex justify-center w-full mx-auto my-12">
             <Spinner />
           </div>

@@ -1,9 +1,3 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Typography,
-} from "@material-tailwind/react";
 import React from "react";
 
 const VideoItem = ({ videoprops, onVideoSelect }) => {
@@ -19,13 +13,13 @@ const VideoItem = ({ videoprops, onVideoSelect }) => {
       >
         <img
           className="w-full"
-          src={videoprops.snippet.thumbnails.medium.url}
-          alt={videoprops.snippet.title}
+          src={videoprops?.snippet.thumbnails.medium.url}
+          alt={videoprops?.snippet.title}
         />
       </div>
 
       <div className="content">
-        <h5>{videoprops.snippet.title}</h5>
+        <h5>{videoprops?.snippet.title}</h5>
       </div>
     </div>
   );

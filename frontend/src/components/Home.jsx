@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { topics } from "../utils/var";
-import { useBooks, useVideos } from "../utils/store.js";
+import { useBooks, useText, useVideos } from "../utils/store.js";
 
 const Home = (props) => {
   const [selTopic, setSelTopic] = useState("");
@@ -8,6 +8,7 @@ const Home = (props) => {
 
   const searchBooks = useBooks((state) => state.searchBooks);
   const searchVideos = useVideos((state) => state.searchVideos);
+  const searchText = useText((state) => state.searchText);
 
   const handleClickTopic = (topic) => {
     setSelTopic(topic);
@@ -16,6 +17,7 @@ const Home = (props) => {
   const handleSearch = () => {
     searchBooks(selTopic, searchKey);
     searchVideos(selTopic, searchKey);
+    searchText(selTopic.replace("+", " "), searchKey);
     props.setShowResult(true);
   };
 

@@ -8,7 +8,7 @@ const VideoDetail = ({ video }) => {
       <div className="flex-1 border-b-2 mb-3 p-3">
         {video ? (
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+            url={`https://www.youtube.com/watch?v=${video?.id?.videoId}`}
             width={"100%"}
           />
         ) : (
@@ -18,8 +18,8 @@ const VideoDetail = ({ video }) => {
         )}
       </div>
       <div>
-        <h2 className="text"> {video.snippet.title} </h2>
-        <p> {video.snippet.description} </p>
+        <h2 className="text"> {video?.snippet?.title} </h2>
+        <p> {video?.snippet?.description} </p>
       </div>
     </div>
   );
