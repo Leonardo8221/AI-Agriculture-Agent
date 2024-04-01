@@ -6,22 +6,22 @@ import SprayingIcon from "../assets/icons/spraying.svg";
 
 export const topics = [
     {
-        key: 'seed',
+        key: 'Sugarcane+seed+varieties',
         topic: 'Sugarcane seed varieties',
         icon: SeedIcon
     },
     {
-        key: 'spray',
+        key: 'Sugarcane+pesticide+and+herbicide+application',
         topic: 'Sugarcane pesticide and herbicide application',
         icon: SprayingIcon
     },
     {
-        key: 'plant',
+        key: 'Sugarcane+seed+planting+and+replanting',
         topic: 'Sugarcane seed planting and replanting',
         icon: PlantIcon
     },
     {
-        key: 'harvest',
+        key: 'Sugarcane+harvesting+and+land+maintence',
         topic: 'Sugarcane harvesting and land maintence',
         icon: HarvestIcon
     },

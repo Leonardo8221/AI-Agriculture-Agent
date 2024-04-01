@@ -14,8 +14,8 @@ const Home = (props) => {
   };
 
   const handleSearch = () => {
-    searchBooks(searchKey);
-    searchVideos(searchKey);
+    searchBooks(selTopic, searchKey);
+    searchVideos(selTopic, searchKey);
     props.setShowResult(true);
   };
 
