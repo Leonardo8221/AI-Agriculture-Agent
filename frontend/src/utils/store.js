@@ -7,7 +7,6 @@ export const useBooks = create(
     persist(
       (set, get) => ({
         books: [],
-        videos: [],
         loading: false,
         error: null,
         searchBooks: (searchKey, maxResults = 5, startIndex = 1) => {
@@ -15,7 +14,7 @@ export const useBooks = create(
 
           axios
             .get(
-              `https://www.googleapis.com/books/v3/volumes?q=${searchKey}&maxResults=${maxResults}&startIndex=${startIndex}`
+              `https://www.googleapis.com/books/v1/volumes?q=${searchKey}&maxResults=${maxResults}&startIndex=${startIndex}`
             )
             .then((res) => {
               if (startIndex >= res.data.totalItems || startIndex < 1) {
@@ -35,9 +34,24 @@ export const useBooks = create(
               set({ loading: false });
             });
         },
+      }),
+      {
+        name: "book-storage",
+        storage: createJSONStorage(() => localStorage),
+      }
+    )
+  )
+);
+
+export const useVideos = create(
+  devtools(
+    persist(
+      (set, get) => ({
+        videos: [],
+        loading: false,
+        error: null,
         searchVideos: (searchKey, maxResults = 5, startIndex = 1) => {
           set({ loading: true });
-
           axios
             .get(
               `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${searchKey}&maxResults=${maxResults}&startIndex=${startIndex}`
@@ -62,9 +76,9 @@ export const useBooks = create(
         },
       }),
       {
-        name: "app-storage",
+        name: "video-storage",
         storage: createJSONStorage(() => localStorage),
       }
     )
   )
-);
+)

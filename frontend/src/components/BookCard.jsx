@@ -22,7 +22,7 @@ const BookCard = ({
       <CardHeader
         shadow={false}
         floated={false}
-        className="m-0 w-1/5 shrink-0 rounded-r-none p-6"
+        className="m-0 w-1/6 shrink-0 rounded-r-none p-6"
       >
         <img src={thumbnail} alt={title} className="w-full object-cover" />
       </CardHeader>

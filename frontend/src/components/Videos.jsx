@@ -8,8 +8,6 @@ const Videos = (props) => {
     setSelectedVideo(video);
   };
 
-  console.log(props.videos);
-
   return (
       <div className="flex h-[500px] gap-3">
         <div className="w-4/5 shadow-md border-2 boder-gray-400 p-3">

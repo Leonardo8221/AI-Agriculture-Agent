@@ -8,14 +8,18 @@ import {
   Spinner,
 } from "@material-tailwind/react";
 
-import { useBooks } from "../utils/store";
+import { useBooks, useVideos } from "../utils/store";
 import BookCard from "./BookCard";
 import Videos from "./Videos";
 
 const Result = (props) => {
-  const { loading, books, videos } = useBooks((state) => ({
+  const { loading, books } = useBooks((state) => ({
     loading: state.loading,
     books: state.books,
+  }));
+
+  const { vLoading, videos } = useVideos((state) => ({
+    vLoading: state.loading,
     videos: state.videos,
   }));
 
@@ -28,7 +32,7 @@ const Result = (props) => {
     {
       label: "Book",
       value: "book",
-      items: books.map((item, i) => {
+      items: books?.map((item, i) => {
         let thumbnail = "";
         if (item.volumeInfo.imageLinks) {
           thumbnail = item.volumeInfo.imageLinks.thumbnail;
@@ -76,8 +80,10 @@ const Result = (props) => {
       </button>
 
       <div className="w-full">
-        {loading ? (
-          <Spinner />
+        {loading && vLoading ? (
+          <div className="w-full mx-auto my-6">
+            <Spinner />
+          </div>
         ) : (
           <Tabs value="video">
             <TabsHeader>
