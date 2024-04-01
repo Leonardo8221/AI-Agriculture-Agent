@@ -14,7 +14,7 @@ export const useBooks = create(
 
           axios
             .get(
-              `https://www.googleapis.com/books/v1/volumes?q=${searchKey}+subject:${topic}&maxResults=${maxResults}&startIndex=${startIndex}`
+              `https://www.googleapis.com/books/v1/volumes?q=${searchKey}:${topic}&maxResults=${maxResults}&startIndex=${startIndex}`
             )
             .then((res) => {
               if (startIndex >= res.data.totalItems || startIndex < 1) {
@@ -54,7 +54,7 @@ export const useVideos = create(
           set({ loading: true });
           axios
             .get(
-              `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${searchKey}+subject:${topic}&maxResults=${maxResults}&startIndex=${startIndex}`
+              `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${searchKey}:${topic}&maxResults=${maxResults}&startIndex=${startIndex}`
             )
             .then((res) => {
               if (startIndex >= res.data.totalItems || startIndex < 1) {
