@@ -104,8 +104,7 @@ export const useText = create(
               messages: [
                 {
                   role: "user",
-                  content: `You are an AI Agriculture Assistant. Make 10mins guide for this title : ${topic}. In more detail describe about "${searchKey}" It will have 6 sections and each section have over 30 sentences. Make it as much as contentful.
-              `,
+                  content: `You are an AI Agriculture Assistant. Make 15mins guide for this field : ${topic}. Describe about "${searchKey}" in more detail. It will have 6 sections and each section have over 30 sentences. Make it as much as contentful.`,
                 },
               ],
               stream: true,
