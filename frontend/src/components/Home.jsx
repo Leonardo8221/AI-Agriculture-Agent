@@ -1,14 +1,27 @@
 import React, { useState } from "react";
 import { topics } from "../utils/var";
+import { useShallow } from "zustand/react/shallow"; //fix rerender when checked/unchecked input
+import { useBooks } from "../utils/store.js";
 
 const Home = (props) => {
   const [selTopic, setSelTopic] = useState("");
   const [searchKey, setSearchKey] = useState("");
+
+  const { loading, searchBooks, searchVideos } = useBooks(
+    useShallow((state) => ({
+      loading: state.loading,
+      searchBooks: state.searchBooks,
+      searchVideos: state.searchVideos,
+    }))
+  );
+
   const handleClickTopic = (topic) => {
     setSelTopic(topic);
   };
   const handleSearch = () => {
-    props.setShowResult(true);
+    searchBooks(searchKey);
+    searchVideos(searchKey);
+    if (!loading) props.setShowResult(true);
   };
 
   return (
