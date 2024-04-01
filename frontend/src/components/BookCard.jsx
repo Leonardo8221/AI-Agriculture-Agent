@@ -31,7 +31,7 @@ const BookCard = ({
           {title}
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-          {description.substring(0, 500)}..
+          {description?.substring(0, 500)}..
         </Typography>
         <div className="flex gap-6">
           <a

@@ -80,8 +80,8 @@ const Result = (props) => {
       </button>
 
       <div className="w-full">
-        {loading && vLoading ? (
-          <div className="w-full mx-auto my-6">
+        {!loading && !vLoading ? (
+          <div className="flex justify-center w-full mx-auto my-12">
             <Spinner />
           </div>
         ) : (
